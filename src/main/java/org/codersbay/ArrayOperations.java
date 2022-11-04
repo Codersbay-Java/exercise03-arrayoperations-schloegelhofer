@@ -1,8 +1,6 @@
 package org.codersbay;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Utility class which performs various operations with integer arrays.
@@ -87,29 +85,40 @@ public class ArrayOperations {
      * @return the average value of all elements summed up.
      */
     public double average() {
-        numbers
-    return (numbers);
+        double sum = 0.0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return sum/numbers.length;
     }
 
     /**
      * @return the average value of all elements summed up, but without the highest and the lowest value.
      */
     public double trimmedMean() {
-        return 0.0;
+        int[] trimmed = new int[numbers.length - 2];
+        int[] sorted = sort();
+        int j  = 0;
+        for (int i = 1; i < sorted.length - 1; i++) {
+            trimmed[j++] = sorted[i];
+        }
+
+        return average(trimmed);
     }
 
     /**
      * @return the max value of the array. In the array [1,9,3] max would be 9.
      */
     public int maxValue() {
-        return 0;
+        return sort() [numbers.length-1];
     }
 
     /**
      * @return the min value of the array. In the array [1,9,3] min would be 1.
      */
     public int minValue() {
-        return 0;
+        return sort()[0];
     }
 
     /* **********************************************************
@@ -117,7 +126,11 @@ public class ArrayOperations {
      *   you like.                                               *
      * ***********************************************************/
 
-    private int someHelper(int[] tmp) {
-        return 1;
+    private double average(int[] average) {
+        double sum = 0.0;
+        for (int number : average) {
+            sum += number;
+        }
+        return sum / average.length;
     }
 }
